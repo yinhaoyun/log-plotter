@@ -1,5 +1,6 @@
 set xdata time
-set timefmt "%Y-%m-%d_%H:%M:%S"
+TimeFormat = "%Y-%m-%d_%H:%M:%S"
+set timefmt TimeFormat
 set xlabel "Time"
 set ylabel "FPS"
 set format x "%H:%M"
