@@ -11,4 +11,5 @@ plot "fps-main-camera.dat" using 1:2 ls 1 title "Main Camera", \
 	"fps-2nd-camera.dat" using 1:2 ls 2 title "2nd Camera", \
 	"fps-main-video.dat" using 1:2 ls 4 title "Main Video", \
 	"fps-2nd-video.dat" using 1:2 ls 5 title "2nd Video", \
-	"temp.dat" every 30 using 1:2 smooth mcsplines ls 3 title "CPU" with lines axes x1y2
+	"temp.dat" every 30 using 1:2 smooth mcsplines ls 3 title "CPU Temp" with lines axes x1y2, \
+	"csv.dat" using 1:2 smooth mcsplines ls 3 title "CPU Loading" with lines axes x1y2

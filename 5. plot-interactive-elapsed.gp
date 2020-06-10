@@ -5,7 +5,7 @@ load 'settings.gp'
 
 set ytics nomirror
 set y2tics
-set y2range [50:100]
+set y2range [0:100]
 
 load 'time-setting.gp'
 StartTime = strptime(TimeFormat, StartDateString."_".StartTimeString)
@@ -19,4 +19,5 @@ plot "fps-main-camera.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 1 titl
 	"fps-2nd-camera.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 2 title "2nd Camera", \
 	"fps-main-video.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 4 title "Main Video", \
 	"fps-2nd-video.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 5 title "2nd Video", \
-	"temp.dat" every 30 using ((timecolumn(1)-StartTime)):2 smooth mcsplines ls 3 title "CPU" with lines axes x1y2
+	"temp.dat" every 30 using ((timecolumn(1)-StartTime)):2 smooth mcsplines ls 3 title "CPU Temp" with lines axes x1y2, \
+	"csv.dat" using ((timecolumn(1)-StartTime)):2 ls 6 title "CPU Loading" with lines axes x1y2

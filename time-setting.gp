@@ -1,5 +1,5 @@
 load 'settings.gp'
 
-StartDateString = "2020-06-04"
-StartTimeString = "20:00:00"
-Duration = "15:00"
+StartDateString = "2020-06-10"
+StartTimeString = "11:26:39"
+Duration = "04:00"
