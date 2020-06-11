@@ -15,10 +15,12 @@ plot "fps-main-video.dat" using 1:2 title "Main Video" ls 4, \
 
 set ytics nomirror
 set y2tics
-set y2range [50:100]
+set y2range [0:100]
 set y2label "Temperature" . ", Max CPU T = " . sprintf("%1.1f", STATS_max_y)
 set title "Video FPS & CPU Temp History"
-set output "fps-temp.png"
+set output "fps-temp-loading.png"
 plot "fps-main-video.dat" using 1:2 title "Main Video" ls 4, \
 		"fps-2nd-video.dat" using 1:2 title "2nd Video" ls 5, \
-		"temp.dat" every 30 using 1:2 smooth mcsplines title "CPU" ls 3 with lines axes x1y2
+		"temp.dat" every 30 using 1:2 smooth mcsplines title "CPU" ls 3 with lines axes x1y2, \
+		"csv.dat" using 1:2 ls 6 title "CPU Loading" with lines axes x1y2, \
+		"" using 1:3 smooth mcsplines ls 7 title "GPU Loading" with lines axes x1y2

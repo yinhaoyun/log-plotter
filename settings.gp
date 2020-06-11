@@ -13,6 +13,8 @@ set style line 2 lt 1 lc rgb "green" lw 1
 set style line 3 lt 1 lc rgb "red" lw 1 #CPU
 set style line 4 lt 2 lc rgb "navy" lw 1
 set style line 5 lt 2 lc rgb "olive" lw 1
+set style line 6 lt 2 lc rgb "purple" lw 1
+set style line 7 lt 2 lc rgb "cyan" lw 1
 
 set yrange [0:30]
 

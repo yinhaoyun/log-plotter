@@ -9,8 +9,6 @@ from contextlib import closing
 from datetime import datetime
 from enum import Enum
 
-from tqdm import tqdm
-
 if sys.version_info[0] < 3:
     raise Exception("Python 3 or a more version is required.")
 
@@ -65,21 +63,18 @@ class KernelLogTimeAligner:
             # stat = os.stat(args.file)
             # pbar = tqdm(total=stat.st_size, unit='B', unit_scale=True, unit_divisor=1024)
             current_datetime = ""
-            current_sec = 0
             for line in finput:
                 # pbar.update(len(line))
                 data = line.split(",")
-                if current_datetime != data[1]:
-                    current_sec = 0
-                else:
-                    current_sec += 5
+                if len(data) < 26:
+                    break
                 current_datetime = data[1]
                 # print(idle)
-                time_st = datetime.strptime(current_datetime + ":" + str(current_sec), "%Y/%m/%d %H:%M:%S")
+                time_st = datetime.strptime(current_datetime, "%Y-%m-%d %H:%M:%S")
                 time_str = datetime.strftime(time_st, "%Y-%m-%d_%H:%M:%S")
-                idle = (800 - int(data[3])) / 8.0
-
-                print("%s %.2f" % (time_str, idle))
+                cpu_loading = (800 - int(data[3])) / 8.0
+                gpu_loading = int(data[25])
+                print("%s %.2f %d" % (time_str, cpu_loading, gpu_loading))
 
             #     if line.startswith(SWITCH_PREFIX):
             #         if self.remove_sep:

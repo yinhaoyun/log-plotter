@@ -20,4 +20,5 @@ plot "fps-main-camera.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 1 titl
 	"fps-main-video.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 4 title "Main Video", \
 	"fps-2nd-video.dat" every 1 using ((timecolumn(1)-StartTime)):2 ls 5 title "2nd Video", \
 	"temp.dat" every 30 using ((timecolumn(1)-StartTime)):2 smooth mcsplines ls 3 title "CPU Temp" with lines axes x1y2, \
-	"csv.dat" using ((timecolumn(1)-StartTime)):2 ls 6 title "CPU Loading" with lines axes x1y2
+	"csv.dat" using ((timecolumn(1)-StartTime)):2 ls 6 title "CPU Loading" with lines axes x1y2, \
+	"" using ((timecolumn(1)-StartTime)):3 smooth mcsplines ls 7 title "GPU Loading" with lines axes x1y2
