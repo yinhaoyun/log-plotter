@@ -67,7 +67,7 @@ class KernelLogTimeAligner:
                 # pbar.update(len(line))
                 data = line.split(",")
                 if len(data) < 26:
-                    break
+                    continue
                 current_datetime = data[1]
                 # print(idle)
                 time_st = datetime.strptime(current_datetime, "%Y-%m-%d %H:%M:%S")
